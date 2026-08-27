@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/* Global Background Base */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F5F3FF;
+  color: #0F172A;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+/* Glassmorphic Classes */
+.glass-card {
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.04);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(221, 214, 254, 0.6);
+  border-radius: 0.75rem;
+}
