@@ -1,13 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
+// Layout & Protection (Named Imports)
 import { MainLayout } from './components/layout/MainLayout';
 import { ProtectedRoute } from './components/ProtectedRoute';
 
+// Auth Pages (Named Imports)
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 import { ForgotPassword } from './pages/ForgotPassword';
 
+// App Pages (Named Imports)
 import { Dashboard } from './pages/Dashboard';
 import { Billing } from './pages/Billing';
 import { Inventory } from './pages/Inventory';
@@ -19,12 +22,12 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Auth Pages */}
+        {/* Public Auth Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
 
-        {/* Protected App Pages wrapped in MainLayout */}
+        {/* Protected Dashboard Routes */}
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Dashboard />} />
@@ -36,6 +39,7 @@ export default function App() {
           </Route>
         </Route>
 
+        {/* Fallback Catch-All */}
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
