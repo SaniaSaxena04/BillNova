@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-// FastAPI default server URL
-const API_BASE_URL = 'http://127.0.0.1:8000/api/v1';
+// Dynamic API Base URL: Uses Vite environment variable in production, falls back to live Render API
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL 
+  ? `${import.meta.env.VITE_API_BASE_URL}/api/v1` 
+  : 'https://billnova-z3tx.onrender.com/api/v1';
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
