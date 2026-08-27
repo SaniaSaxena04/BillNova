@@ -1,28 +1,40 @@
+import os
 import requests
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI(title="BillNova POS API")
 
-# Configure allowed origins (React Vite default port)
+# Configure allowed origins for local dev and production (Vercel)
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
 ]
+
+# Pull Vercel URL from environment if present
+frontend_url = os.getenv("FRONTEND_URL")
+if frontend_url:
+    origins.append(frontend_url)
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
+    allow_origin_regex=r"https://.*\.vercel\.app",  # Matches any Vercel preview/production deployment URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Telegram Credentials
-TELEGRAM_BOT_TOKEN = "8769032389:AAGsfPx6zqpFSQJW20177eaWgLNSOtiEQ2o"
-TELEGRAM_CHAT_ID = "8740033234"
+# Telegram Credentials (Loads from .env with fallbacks)
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8769032389:AAGsfPx6zqpFSQJW20177eaWgLNSOtiEQ2o")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "8740033234")
 
 # Pydantic Schemas for Checkout
 class OrderItem(BaseModel):
