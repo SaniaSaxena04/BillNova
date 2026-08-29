@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-// Layout & Protection (Named Imports with Explicit Extensions)
+// Layout & Protection
 import { MainLayout } from './components/layout/MainLayout.jsx';
 import { ProtectedRoute } from './components/ProtectedRoute.jsx';
 
-// Auth Pages (Named Imports with Explicit Extensions)
+// Auth Pages
 import { Login } from './pages/Login.jsx';
 import { Register } from './pages/Register.jsx';
 import { ForgotPassword } from './pages/ForgotPassword.jsx';
 
-// App Pages (Named Imports with Explicit Extensions)
+// App Pages
 import { Dashboard } from './pages/Dashboard.jsx';
 import { Billing } from './pages/Billing.jsx';
 import { Inventory } from './pages/Inventory.jsx';
