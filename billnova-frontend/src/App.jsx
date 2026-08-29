@@ -1,22 +1,22 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-// Layout & Protection (Named Imports)
-import { MainLayout } from './components/layout/MainLayout';
-import { ProtectedRoute } from './components/ProtectedRoute';
+// Layout & Protection (Named Imports with Explicit Extensions)
+import { MainLayout } from './components/layout/MainLayout.jsx';
+import { ProtectedRoute } from './components/ProtectedRoute.jsx';
 
-// Auth Pages (Named Imports)
-import { Login } from './pages/Login';
-import { Register } from './pages/Register';
-import { ForgotPassword } from './pages/ForgotPassword';
+// Auth Pages (Named Imports with Explicit Extensions)
+import { Login } from './pages/Login.jsx';
+import { Register } from './pages/Register.jsx';
+import { ForgotPassword } from './pages/ForgotPassword.jsx';
 
-// App Pages (Named Imports)
-import { Dashboard } from './pages/Dashboard';
-import { Billing } from './pages/Billing';
-import { Inventory } from './pages/Inventory';
-import { Analytics } from './pages/Analytics';
-import { Invoices } from './pages/Invoices';
-import { Settings } from './pages/Settings';
+// App Pages (Named Imports with Explicit Extensions)
+import { Dashboard } from './pages/Dashboard.jsx';
+import { Billing } from './pages/Billing.jsx';
+import { Inventory } from './pages/Inventory.jsx';
+import { Analytics } from './pages/Analytics.jsx';
+import { Invoices } from './pages/Invoices.jsx';
+import { Settings } from './pages/Settings.jsx';
 
 export default function App() {
   return (
